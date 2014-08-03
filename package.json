@@ -1,0 +1,12 @@
+{
+  "name": "pipro",
+  "engines": [
+    "node >= 0.8.0"
+  ],
+  "dependencies": {
+    "express": "3.x.x",
+    "imagemagick": "0.1.x",
+    "request": "2.x.x",
+    "sleep": "1.x.x"
+  }
+}

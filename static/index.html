@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GoPro Controls</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="socket.io/socket.io.js"></script>
+<script type="text/javascript">
+var socket = null;
+$(function(){
+	socket = io.connect('/');
+
+	$("#sendData").submit(function(){
+		var id = $("#id").val().trim();
+		var data = $("#data").val().trim();
+		socket.emit("send", id, data);
+		$("#data").val("");
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+	<form id="sendData">
+		<label>
+			ID:
+			<input type="text" id="id" size="6" />
+		</label>
+		<label>
+			Data:
+			<input type="text" id="data" size="20" autocomplete="off" />
+		</label>
+		<input type="submit" value="Send" />
+	</form>
+</body>
+</html>
