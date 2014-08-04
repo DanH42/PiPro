@@ -50,7 +50,7 @@ function doAction(path, p, callback){
 	request(url, function(err, res, body){
 		if(callback)
 			callback(!err && res.statusCode === 200);
-		else if(err || res.statusCode !== 200))
+		else if(err || res.statusCode !== 200)
 			console.log("Error sending command to GoPro:", path, p);
 	});
 }
@@ -63,7 +63,7 @@ function updateImage(){
 
 	console.log("Getting image list from camera...");
 	request(config.dcim_url + "101GOPRO/", function(err, res, body){
-		if(!err && res.statusCode === 200)
+		if(!err && res.statusCode === 200){
 			var temp = body.split('.JPG</a>');
 			if(temp.length > 1){
 				var temp = temp[temp.length - 2].split('>');
