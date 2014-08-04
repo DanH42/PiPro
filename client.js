@@ -49,8 +49,8 @@ function doAction(path, p, callback){
 		url += "&p=%" + p;
 	request(url, function(err, res, body){
 		if(callback)
-			callback(!err && res.statusCode === 200);
-		else if(err || res.statusCode !== 200)
+			callback(!err);
+		else if(err)
 			console.log("Error sending command to GoPro:", path, p);
 	});
 }
