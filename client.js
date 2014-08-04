@@ -24,7 +24,7 @@ function handleResponse(err, res, body){
 }
 
 function handleError(err, status){
-	console.log("ERROR", res.statusCode, err);
+	console.log("ERROR", status, err);
 }
 
 function handleInput(data){
