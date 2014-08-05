@@ -56,10 +56,12 @@ function doAction(path, p, callback){
 }
 
 function updateImage(){
+	console.log("Setting camera mode...");
+	doAction("CM", "01");
+	sleep.sleep(1);
 	console.log("Taking picture...");
 	doAction("SH", "01");
 	sleep.sleep(1);
-	doAction("SH", "00");
 
 	console.log("Getting image list from camera...");
 	request(config.dcim_url + "101GOPRO/", function(err, res, body){
