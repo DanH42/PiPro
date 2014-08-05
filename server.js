@@ -53,14 +53,15 @@ app.get('/poll/:id', function(req, res){
 });
 
 app.post('/upload', function(req, res){
+	console.log("Starting upload...");
 	var upload = fs.createWriteStream("latest.jpg");
-	req.setEncoding('utf8');
 	req.on('data', function(chunk){
 		upload.write(chunk);
 	});
 	req.on('end', function(){
 		upload.end();
 		res.send("Got it!");
+		console.log("Upload complete.");
 	});
 });
 
