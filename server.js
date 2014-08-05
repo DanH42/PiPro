@@ -27,7 +27,8 @@ function sendRes(id, data){
 
 	if(reqs[id]){
 		reqs[id].res.send(queue[id]);
-		console.log("Sent " + queue[id].length + " message(s) to " + id);
+		if(queue[id].length > 0)
+			console.log("Sent " + queue[id].length + " message(s) to " + id);
 		delete reqs[id];
 		delete queue[id];
 	}
@@ -54,7 +55,7 @@ app.get('/poll/:id', function(req, res){
 
 app.post('/upload', function(req, res){
 	console.log("Starting upload...");
-	var upload = fs.createWriteStream("latest.jpg");
+	var upload = fs.createWriteStream("static/latest.jpg");
 	req.on('data', function(chunk){
 		upload.write(chunk);
 	});
