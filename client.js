@@ -84,7 +84,7 @@ function updateImage(){
 								fs.createReadStream("latest.jpg").pipe(request.post(config.update_url, function(err, res, body){
 									if(!err && res.statusCode === 200){
 										console.log("Wiping memory...");
-										doAction("DA", function(success){
+										doAction("DA", "", function(success){
 											if(success)
 												imageComplete();
 											else
